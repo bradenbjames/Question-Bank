@@ -66,7 +66,7 @@ public class ObjectLinkedList implements ListInterface {
 
    // retrieve (get) an item from the list
    @Override
-   public Question get(int index) throws ListException {
+   public Object get(int index) throws ListException {
       if ((index > 0) || (index >= this.numberOfItems))
          throw new ListException("Index is out of bounds.");
       return this.head.find(index).getItem();

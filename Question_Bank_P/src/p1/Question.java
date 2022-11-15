@@ -5,8 +5,7 @@ public class Question {
     String title;
     int group;
 
-    public Question(String title, String data, int group) {
-        this.title = title;
+    public Question(String data, int group) {
         this.data = data;
         this.group = group;
     }

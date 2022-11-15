@@ -1,18 +1,18 @@
 package p1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class Controller extends AbstractGroup {
@@ -33,7 +33,7 @@ public class Controller extends AbstractGroup {
     private Button btnOverview;
 
     @FXML
-    private MenuButton menuButton;
+    private Button btnCreateGroup;
 
     @FXML
     Button btnAddQuestion;
@@ -45,22 +45,29 @@ public class Controller extends AbstractGroup {
     private TextField txtTitle;
 
     @FXML
-    private ListView<String> listView;
+    ComboBox<String> comboBox;
 
+    @FXML
+
+    private ListView<String> listView;
     @FXML
     private ListView<String> listViewR;
 
-    public void setup() {
-        for (Group g : groupArray) {
-            int i = 0;
-            this.menuButton.getItems().add(new MenuItem(groupArray[0].groupName));
-            i++;
-        }
+    ArrayList<String> al = new ArrayList<String>();
 
-    }
+    public void initActions() {
+        // Detecting mouse clicked
+        listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
-    public void btnAddQuestionClicked() {
-
+            @Override
+            public void handle(MouseEvent arg0) {
+                // listViewR.getItems().clear();
+                // Check wich list index is selected then set txtContent value for that index
+                // System.out.println(groupArray[comboBox.getSelectionModel().getSelectedIndex()].list.toString());
+                listViewR.getItems().clear();
+                listViewR.getItems().addAll(groupArray[listView.getSelectionModel().getSelectedIndex()].arrayList);
+            }
+        });
     }
 
     public void handleClicks(ActionEvent actionEvent) {
@@ -72,53 +79,35 @@ public class Controller extends AbstractGroup {
         if (actionEvent.getSource() == btnExit) {
             Platform.exit();
         }
-        if (actionEvent.getSource() == btnCreateQuestion) {
-            if (groupArraySize == 0) {
-                this.groupArray[this.groupArraySize] = new Group(txtTitle.getText());
-                this.groupArray[this.groupArraySize].list.add(0,
-                        new Question(txtTitle.getText(), txtQuestion.getText(), 1));
-                // txtQuestion.getText(), 0));
-                this.listView.getItems().add(this.groupArray[this.groupArraySize].groupName);
-                groupArraySize++;
-            } else {
-                this.groupArray[this.groupArraySize] = new Group(txtTitle.getText());
-                this.groupArray[this.groupArraySize].list.add(0,
-                        new Question(txtTitle.getText(), txtQuestion.getText(), 1));
-                // txtQuestion.getText(), 0));
-                this.listView.getItems().add(this.groupArray[this.groupArraySize].groupName);
-                groupArraySize++;
-            }
-            listView.setOnMouseClicked((EventHandler<? super MouseEvent>) new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent arg0) {
-                    // Check wich ListView index is selected then set txtContent value for that
-                    // index
-                    displayGroupQuestions();
-                }
-            });
+        if (actionEvent.getSource() == btnCreateGroup) {
+            this.groupArray[this.groupArraySize] = new Group(txtTitle.getText());
+            listView.getItems().add(txtTitle.getText());
+            comboBox.getItems().add(txtTitle.getText());
+            groupArraySize++;
         }
         if (actionEvent.getSource() == btnAddQuestion) {
-            setup();
-            for (int i = 0; i < groupArray.length; i++) {
-
-                if (menuButton.getItems().get(i).toString() == groupArray[i].groupName) {
-
+            // groupArray[comboBox.getSelectionModel().getSelectedIndex()].list.add(
+            // groupArray[comboBox.getSelectionModel().getSelectedIndex()].listCounter,
+            // new Question(txtQuestion.getText(), 0));
+            // groupArray[comboBox.getSelectionModel().getSelectedIndex()].listCounter++;
+            String s = comboBox.getValue();
+            for (int i = 0; i < groupArraySize; i++) {
+                if (s.equals(groupArray[i].groupName)) {
+                    groupArray[i].arrayList.add(txtQuestion.getText());
                 }
             }
         }
     }
 
-    public void displayGroupQuestions() {
-        listViewR.getItems().clear();
-        boolean b = true;
+    public void LinkedListToArrayList() {
+        for (Group g : groupArray) {
+            g.list.get(groupArraySize);
+        }
+    }
 
-        while (b) {
-            int i = 0;
-            Question q = this.groupArray[this.listView.getSelectionModel().getSelectedIndex()].list.get(i);
-            i++;
-            System.out.println(q.data);
-            listViewR.getItems().add(q.data);
-            b = false;
+    public void printArrayList() {
+        for (String s : al) {
+            System.out.println(s);
         }
     }
 }
