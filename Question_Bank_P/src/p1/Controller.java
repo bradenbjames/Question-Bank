@@ -1,15 +1,18 @@
 package p1;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -40,6 +43,9 @@ public class Controller extends AbstractGroup {
 
     @FXML
     private TextArea txtQuestion;
+
+    @FXML
+    private Label lblErrorMessage;
 
     @FXML
     private TextField txtTitle;
@@ -90,6 +96,10 @@ public class Controller extends AbstractGroup {
             // groupArray[comboBox.getSelectionModel().getSelectedIndex()].listCounter,
             // new Question(txtQuestion.getText(), 0));
             // groupArray[comboBox.getSelectionModel().getSelectedIndex()].listCounter++;
+            if (groupArraySize == 0) {
+                lblErrorMessage.setText("Must Create a group first!");
+                lblErrorMessage.setVisible(true);
+            }
             String s = comboBox.getValue();
             for (int i = 0; i < groupArraySize; i++) {
                 if (s.equals(groupArray[i].groupName)) {

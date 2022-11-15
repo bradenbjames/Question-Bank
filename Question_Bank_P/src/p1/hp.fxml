@@ -81,9 +81,10 @@
                   <Label layoutX="38.0" layoutY="6.0" text="Group Title" />
                   <Label layoutX="38.0" layoutY="67.0" text="Question Data" visible="false" />
                   <TextArea fx:id="txtQuestion" layoutX="30.0" layoutY="94.0" prefHeight="134.0" prefWidth="209.0" />
-                  <ComboBox fx:id="comboBox" layoutX="36.0" layoutY="235.0" onAction="#handleClicks" prefHeight="27.0" prefWidth="84.0" promptText="Group" />
+                  <ComboBox fx:id="comboBox" layoutX="36.0" layoutY="235.0" onAction="#handleClicks" prefHeight="30.0" prefWidth="96.0" promptText="Group" />
                   <Button fx:id="btnCreateGroup" layoutX="137.0" layoutY="61.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="30.0" prefWidth="96.0" text="Create Group" />
                   <Button fx:id="btnAddQuestion" layoutX="137.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="30.0" prefWidth="96.0" text="Add Question" />
+                  <Label fx:id="lblErrorMessage" layoutX="61.0" layoutY="286.0" prefHeight="18.0" prefWidth="195.0" text="Label" textFill="RED" visible="false" />
                </children>
             </Pane>
          </children>
@@ -96,11 +97,6 @@
             <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: C4C4C4;">
                <children>
                   <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #898989; -fx-border-color: #898989;" />
-                  <Label layoutX="25.0" layoutY="43.0" text="Question Bank">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
                   <HBox alignment="CENTER_LEFT" layoutX="17.0" layoutY="178.0" prefHeight="42.0" prefWidth="740.0" spacing="80.0" style="-fx-background-color: #898989;">
                      <children>
                         <Label text="Groups" textFill="#e7e5e5">
@@ -158,6 +154,11 @@
                         <Image url="@../../../../../Question_Bank/Question_Bank/src/images/icons8_Search_52px.png" />
                      </image>
                   </ImageView>
+                  <Label layoutX="17.0" layoutY="44.0" text="Question Bank">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
