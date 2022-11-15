@@ -23,14 +23,14 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" translateY="-50.0">
                <image>
-                  <Image url="@../../../../../Question_Bank/Question_Bank/src/images/jimmy-fallon.png" />
+                  <Image url="@images/icons8-questions-80.png" />
                </image>
                <VBox.margin>
-                  <Insets bottom="10.0" top="50.0" />
+                  <Insets top="100.0" />
                </VBox.margin></ImageView>
-            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../../../Question_Bank/Question_Bank/src/p1/style.css" text="Overview">
+            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" text="Overview">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -96,7 +96,7 @@
             <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: C4C4C4;">
                <children>
-                  <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #898989; -fx-border-color: #898989;" />
+                  <TextField layoutX="574.0" layoutY="69.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #898989; -fx-border-color: #898989;" />
                   <HBox alignment="CENTER_LEFT" layoutX="17.0" layoutY="178.0" prefHeight="42.0" prefWidth="740.0" spacing="80.0" style="-fx-background-color: #898989;">
                      <children>
                         <Label text="Groups" textFill="#e7e5e5">
@@ -154,7 +154,7 @@
                         <Image url="@../../../../../Question_Bank/Question_Bank/src/images/icons8_Search_52px.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="17.0" layoutY="44.0" text="Question Bank">
+                  <Label layoutX="17.0" layoutY="65.0" text="Question Bank">
                      <font>
                         <Font size="24.0" />
                      </font>

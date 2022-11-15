@@ -86,10 +86,16 @@ public class Controller extends AbstractGroup {
             Platform.exit();
         }
         if (actionEvent.getSource() == btnCreateGroup) {
-            this.groupArray[this.groupArraySize] = new Group(txtTitle.getText());
-            listView.getItems().add(txtTitle.getText());
-            comboBox.getItems().add(txtTitle.getText());
-            groupArraySize++;
+            if (txtTitle.getText() == "") {
+                lblErrorMessage.setText("Cant add empty group!");
+                lblErrorMessage.setVisible(true);
+            } else {
+                lblErrorMessage.setVisible(false);
+                this.groupArray[this.groupArraySize] = new Group(txtTitle.getText());
+                listView.getItems().add(txtTitle.getText());
+                comboBox.getItems().add(txtTitle.getText());
+                groupArraySize++;
+            }
         }
         if (actionEvent.getSource() == btnAddQuestion) {
             // groupArray[comboBox.getSelectionModel().getSelectedIndex()].list.add(
@@ -100,10 +106,16 @@ public class Controller extends AbstractGroup {
                 lblErrorMessage.setText("Must Create a group first!");
                 lblErrorMessage.setVisible(true);
             }
-            String s = comboBox.getValue();
-            for (int i = 0; i < groupArraySize; i++) {
-                if (s.equals(groupArray[i].groupName)) {
-                    groupArray[i].arrayList.add(txtQuestion.getText());
+            if (comboBox.getValue() == null) {
+                lblErrorMessage.setText("Select a group first!");
+                lblErrorMessage.setVisible(true);
+            } else {
+                lblErrorMessage.setVisible(false);
+                String s = comboBox.getValue();
+                for (int i = 0; i < groupArraySize; i++) {
+                    if (s.equals(groupArray[i].groupName)) {
+                        groupArray[i].arrayList.add(txtQuestion.getText());
+                    }
                 }
             }
         }
