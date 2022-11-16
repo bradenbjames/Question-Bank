@@ -53,7 +53,7 @@ public class Controller extends AbstractGroup {
 
     private ListView<String> listView;
     @FXML
-    private ListView<String> listViewR;
+    private ListView<Question> listViewR;
 
     ArrayList<String> al = new ArrayList<String>();
 
@@ -115,7 +115,7 @@ public class Controller extends AbstractGroup {
                 String s = comboBox.getValue();
                 for (int i = 0; i < groupArraySize; i++) {
                     if (s.equals(groupArray[i].groupName)) {
-                        groupArray[i].arrayList.add(txtQuestion.getText());
+                        groupArray[i].arrayList.add(new Question(txtQuestion.getText(), 0));
                     }
                 }
             }
