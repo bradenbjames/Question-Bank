@@ -1,11 +1,7 @@
 package p1;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import javafx.animation.Animation;
-import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -71,7 +67,12 @@ public class Controller extends AbstractGroup {
                 // Check wich list index is selected then set txtContent value for that index
                 // System.out.println(groupArray[comboBox.getSelectionModel().getSelectedIndex()].list.toString());
                 listViewR.getItems().clear();
-                listViewR.getItems().addAll(groupArray[listView.getSelectionModel().getSelectedIndex()].arrayList);
+                if (listView.getSelectionModel().getSelectedItem() == null) {
+                    lblErrorMessage.setText("No group selected!");
+                } else {
+                    listViewR.getItems().addAll(groupArray[listView.getSelectionModel().getSelectedIndex()].arrayList);
+                }
+
             }
         });
     }
@@ -118,18 +119,6 @@ public class Controller extends AbstractGroup {
                     }
                 }
             }
-        }
-    }
-
-    public void LinkedListToArrayList() {
-        for (Group g : groupArray) {
-            g.list.get(groupArraySize);
-        }
-    }
-
-    public void printArrayList() {
-        for (String s : al) {
-            System.out.println(s);
         }
     }
 }
