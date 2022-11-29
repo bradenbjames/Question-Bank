@@ -1,7 +1,7 @@
 package p1;
 
 public class ObjectLinkedList implements ListInterface {
-   private ObjectNode head;
+   public ObjectNode head;
    private int numberOfItems;
 
    // creates empty list
@@ -70,5 +70,15 @@ public class ObjectLinkedList implements ListInterface {
       if ((index > 0) || (index >= this.numberOfItems))
          throw new ListException("Index is out of bounds.");
       return this.head.find(index).getItem();
+   }
+
+   public String printList() {
+      ObjectNode head1 = this.head;
+
+      if (head1 == null) {
+         return "null";
+      }
+      return head1.getItem().toString();
+
    }
 }

@@ -67,7 +67,7 @@
                <children>
                   <TextField fx:id="txtTitle" layoutX="38.0" layoutY="24.0" prefHeight="26.0" prefWidth="195.0" promptText="Group Title" style="-fx-background-color: FFFFFF;" />
                   <Label layoutX="38.0" layoutY="67.0" text="Question Data" visible="false" />
-                  <TextArea fx:id="txtQuestion" layoutX="34.0" layoutY="104.0" prefHeight="139.0" prefWidth="202.0" promptText="Insert Question" />
+                  <TextArea fx:id="txtQuestion" layoutX="34.0" layoutY="104.0" onKeyPressed="#textChangedHandler" prefHeight="139.0" prefWidth="202.0" promptText="Insert Question" />
                   <ComboBox fx:id="comboBox" layoutX="34.0" layoutY="247.0" onAction="#handleClicks" prefHeight="30.0" prefWidth="96.0" promptText="Group" />
                   <Button fx:id="btnCreateGroup" layoutX="137.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="30.0" prefWidth="96.0" text="Create Group" />
                   <Button fx:id="btnAddQuestion" layoutX="139.0" layoutY="247.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="30.0" prefWidth="96.0" text="Add Question" />

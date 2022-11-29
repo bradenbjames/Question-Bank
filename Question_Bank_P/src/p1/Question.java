@@ -1,8 +1,7 @@
 package p1;
 
 public class Question {
-    String data;
-    String title;
+    private String data;
     int group;
 
     public Question(String data, int group) {

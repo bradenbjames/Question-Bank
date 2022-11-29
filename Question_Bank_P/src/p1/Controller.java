@@ -2,6 +2,7 @@ package p1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,9 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class Controller extends AbstractGroup {
-    public Group[] groupArray = new Group[10];
-    int groupArraySize = 0;
-    int threshold = 10;
+    private Group[] groupArray = new Group[10];
+    private int groupArraySize = 0;
+    private int threshold = 10;
 
     @FXML
     private Button btnCreateQuestion;
@@ -50,10 +51,35 @@ public class Controller extends AbstractGroup {
     ComboBox<String> comboBox;
 
     @FXML
-
     private ListView<String> listView;
+
     @FXML
-    private ListView<Question> listViewR;
+    private ListView<String> listViewR;
+    // public ListCell<Question> intialize() {
+    // listViewR.relocate(10, 210);
+    // listViewR.setPrefSize(this.getPrefWidth() - 20, this.getPrefHeight() - 250);
+    // listViewR.setCellFactory(new Callback<ListView<Question>,
+    // ListCell<Question>>() {
+    // @Override
+    // public ListCell<String> call(ListView<String> list) {
+    // final ListCell cell = new ListCell() {
+    // private Text text;
+
+    // @Override
+    // public void updateItem(Object item, boolean empty) {
+    // super.updateItem(item, empty);
+    // if (!isEmpty()) {
+    // text = new Text(item.toString());
+    // text.setWrappingWidth(listViewR.getPrefWidth());
+    // setGraphic(text);
+    // }
+    // }
+    // };
+
+    // return cell;
+    // }
+    // });
+    // }
 
     ArrayList<String> al = new ArrayList<String>();
 
@@ -63,25 +89,37 @@ public class Controller extends AbstractGroup {
 
             @Override
             public void handle(MouseEvent arg0) {
-                // listViewR.getItems().clear();
-                // Check wich list index is selected then set txtContent value for that index
-                // System.out.println(groupArray[comboBox.getSelectionModel().getSelectedIndex()].list.toString());
                 listViewR.getItems().clear();
                 if (listView.getSelectionModel().getSelectedItem() == null) {
                     lblErrorMessage.setText("No group selected!");
                 } else {
-                    listViewR.getItems().addAll(groupArray[listView.getSelectionModel().getSelectedIndex()].arrayList);
+                    // listViewR.getItems().addAll(groupArray[listView.getSelectionModel().getSelectedIndex()].arrayList);
+                    for (int i = 0; i < groupArray.length; i++) {
+                        if (groupArray[i] == null) {
+                            throw new ListException("null group");
+                        }
+                        for (int j = 0; j < groupArray[i].list.size(); j++) {
+                            listViewR.getItems().addAll(groupArray[i].list.printList());
+                        }
+                    }
                 }
 
             }
         });
     }
 
+    public void textChangedHandler() {
+        txtQuestion.setWrapText(true);
+        listView.setPrefWidth(10);
+    }
+
     public void handleClicks(ActionEvent actionEvent) {
+        // allocate new memory for groupArray
         if (this.groupArraySize == threshold) {
             Group[] newArr = Arrays.copyOf(this.groupArray, threshold * 2);
             threshold = threshold * 2;
             groupArray = newArr;
+            System.out.println(this.groupArray.length);
         }
         if (actionEvent.getSource() == btnExit) {
             Platform.exit();
@@ -99,7 +137,7 @@ public class Controller extends AbstractGroup {
             }
         }
         if (actionEvent.getSource() == btnAddQuestion) {
-            // groupArray[comboBox.getSelectionModel().getSelectedIndex()].list.add(
+
             // groupArray[comboBox.getSelectionModel().getSelectedIndex()].listCounter,
             // new Question(txtQuestion.getText(), 0));
             // groupArray[comboBox.getSelectionModel().getSelectedIndex()].listCounter++;
@@ -116,6 +154,8 @@ public class Controller extends AbstractGroup {
                 for (int i = 0; i < groupArraySize; i++) {
                     if (s.equals(groupArray[i].groupName)) {
                         groupArray[i].arrayList.add(new Question(txtQuestion.getText(), 0));
+                        groupArray[i].list.add(0,
+                                new Question(txtQuestion.getText(), 0));
                     }
                 }
             }
