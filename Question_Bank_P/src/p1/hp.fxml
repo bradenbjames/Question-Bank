@@ -146,10 +146,13 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
+                  <Label layoutX="554.0" layoutY="553.0" text="Question Count (this group):" />
+                  <Label fx:id="txtQuestionCount" layoutX="742.0" layoutY="553.0" text="0" textAlignment="CENTER" textFill="#0400ff" />
                </children>
             </Pane>
          </children>
       </StackPane>
+      <Label text="Label" />
    </children>
    <effect>
       <DropShadow color="#1b1eeb" />

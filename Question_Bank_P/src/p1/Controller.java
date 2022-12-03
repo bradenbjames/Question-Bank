@@ -54,6 +54,9 @@ public class Controller extends AbstractGroup {
     private ListView<String> listView;
 
     @FXML
+    private Label txtQuestionCount;
+
+    @FXML
     private ListView<String> listViewR;
     // public ListCell<Question> intialize() {
     // listViewR.relocate(10, 210);
@@ -93,15 +96,17 @@ public class Controller extends AbstractGroup {
                 if (listView.getSelectionModel().getSelectedItem() == null) {
                     lblErrorMessage.setText("No group selected!");
                 } else {
-                    // listViewR.getItems().addAll(groupArray[listView.getSelectionModel().getSelectedIndex()].arrayList);
-                    for (int i = 0; i < groupArray.length; i++) {
-                        if (groupArray[i] == null) {
-                            throw new ListException("null group");
-                        }
-                        for (int j = 0; j < groupArray[i].list.size(); j++) {
-                            listViewR.getItems().addAll(groupArray[i].list.printList());
-                        }
-                    }
+                    listViewR.getItems().addAll(groupArray[listView.getSelectionModel().getSelectedIndex()].arrayList);
+                    txtQuestionCount
+                            .setText("" + groupArray[listView.getSelectionModel().getSelectedIndex()].arrayList.size());
+                    // for (int i = 0; i < groupArray.length; i++) {
+                    // if (groupArray[i] == null) {
+                    // throw new ListException("null group");
+                    // }
+                    // for (int j = 0; j < groupArray[i].list.size(); j++) {
+                    // listViewR.getItems().addAll(groupArray[i].list.printList());
+                    // }
+                    // }
                 }
 
             }
@@ -153,9 +158,9 @@ public class Controller extends AbstractGroup {
                 String s = comboBox.getValue();
                 for (int i = 0; i < groupArraySize; i++) {
                     if (s.equals(groupArray[i].groupName)) {
-                        groupArray[i].arrayList.add(new Question(txtQuestion.getText(), 0));
-                        groupArray[i].list.add(0,
-                                new Question(txtQuestion.getText(), 0));
+                        groupArray[i].arrayList.add(txtQuestion.getText());
+                        // groupArray[i].list.add(0,
+                        // new Question(txtQuestion.getText(), 0));
                     }
                 }
             }
