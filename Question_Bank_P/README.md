@@ -6,8 +6,9 @@ Question Bank is a JavaFX application that provides users to store and view ques
 
 An in-depth paragraph about your project and overview of use.
 
-## Getting Started
-
+## Getting Started (You Need These)
+[JavaSDK Download](https://www.oracle.com/java/technologies/downloads/)
+[JavaFX Download](https://gluonhq.com/products/javafx/)
 ### Dependencies
 
 * Java- JavaFX
@@ -18,10 +19,16 @@ An in-depth paragraph about your project and overview of use.
 
 ### Modifications needed
 
-* How to run the program
+* How to run Question Bank
 * Step-by-step bullets
 ```
-code blocks for commands
+1. Launch Question Bank.
+```
+```
+2. Add a group on left hand side of the application.
+```
+```
+3. Add a question of choice to the text box and select the group to be added to.
 ```
 
 ## Help
@@ -32,29 +39,20 @@ command to run if program contains helper info
 ```
 
 ## Authors
+Braden James
+Ariel Jackson
 
 Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+[Ariel Jackson](https://github.com/Jacksaj9)
+[Braden James](https://github.com/bradenbjames)
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+None
 
-## Acknowledgments
+## Extra
 
 Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+* [GitHub](https://github.com/bradenbjames/Question-Bank.git)
+
