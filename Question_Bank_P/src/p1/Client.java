@@ -19,8 +19,6 @@ public class Client extends Application {
     public void start(Stage primaryStage) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("hp.fxml"));
-        root.getStylesheets()
-                .add("C:/Users/brade/OneDrive/Documents/Fall 2022/CSCI 3331/Question-Bank/Question-Bank/css");
         primaryStage.setScene(new Scene(root));
         // set stage borderless
         primaryStage.initStyle(StageStyle.UNDECORATED);
