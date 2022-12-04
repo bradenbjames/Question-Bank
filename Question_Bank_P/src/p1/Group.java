@@ -2,7 +2,7 @@ package p1;
 
 import java.util.ArrayList;
 
-public class Group {
+public class Group extends AbstractGroup {
     // public ObjectLinkedList list;
     public ArrayList<Question> arrayList;
     String groupName;
