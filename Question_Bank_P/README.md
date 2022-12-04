@@ -7,8 +7,8 @@ Question Bank is a JavaFX application that provides users to store and view ques
 Question Bank was originally intended to include the ability to create an instructor or student account. The application 
 
 ## Getting Started (You Need These)
-*JavaSDK: [JavaSDK Download](https://www.oracle.com/java/technologies/downloads/)
-*JavaFX: [JavaFX Download](https://gluonhq.com/products/javafx/)
+* JavaSDK: [JavaSDK Download](https://www.oracle.com/java/technologies/downloads/)
+* JavaFX: [JavaFX Download](https://gluonhq.com/products/javafx/)
 ### Dependencies
 
 * Java 
