@@ -4,17 +4,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -52,7 +51,7 @@
                   <Insets left="50.0" />
                </padding>
                <graphic>
-                  <Label alignment="CENTER" text="My Groups" />
+                  <Label alignment="CENTER" text="Groups" />
                </graphic>
             </Button>
             <Button fx:id="btnExit" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" textAlignment="CENTER">
@@ -84,75 +83,27 @@
             <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: C4C4C4;">
                <children>
                   <TextField layoutX="574.0" layoutY="69.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #898989; -fx-border-color: #898989;" />
-                  <HBox alignment="CENTER_LEFT" layoutX="17.0" layoutY="178.0" prefHeight="42.0" prefWidth="740.0" spacing="80.0" style="-fx-background-color: #898989;">
-                     <children>
-                        <Label text="Groups" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <Label text="Questions" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <ScrollPane layoutX="14.0" layoutY="232.0" prefHeight="320.0" prefWidth="746.0" stylesheets="@../../../../../Question_Bank/Question_Bank/src/p1/style.css">
-                     <content>
-                        <VBox fx:id="pnItems" prefHeight="318.0" prefWidth="744.0" spacing="5.0" style="-fx-background-color: #02030A;">
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                           <children>
-                              <SplitPane prefHeight="324.0" prefWidth="734.0">
-                                <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                       <children>
-                                          <SplitPane dividerPositions="0.29797979797979796" layoutX="-2.0" layoutY="-1.0" prefHeight="310.0" prefWidth="739.0">
-                                            <items>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                                   <children>
-                                                      <ListView fx:id="listView" layoutX="-6.0" layoutY="94.0" onMouseClicked="#initActions" prefHeight="308.0" prefWidth="217.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                                   <children>
-                                                      <ListView fx:id="listViewR" layoutX="172.0" layoutY="61.0" prefHeight="308.0" prefWidth="514.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                            </items>
-                                          </SplitPane>
-                                       </children>
-                                    </AnchorPane>
-                                </items>
-                              </SplitPane>
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-                  <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="749.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Question_Bank/Question_Bank/src/images/icons8_Search_52px.png" />
-                     </image>
-                  </ImageView>
                   <Label layoutX="17.0" layoutY="65.0" text="Question Bank">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="554.0" layoutY="553.0" text="Question Count (this group):" />
-                  <Label fx:id="txtQuestionCount" layoutX="742.0" layoutY="553.0" text="0" textAlignment="CENTER" textFill="#0400ff" />
-                  <Pane fx:id="groupsPane" prefHeight="576.0" prefWidth="793.0" />
+                  <GridPane fx:id="gp" gridLinesVisible="true" layoutX="28.0" layoutY="166.0" prefHeight="387.0" prefWidth="741.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
                </children>
             </Pane>
          </children>
       </StackPane>
+      <Label text="Label" />
    </children>
    <effect>
       <DropShadow color="#1b1eeb" />
