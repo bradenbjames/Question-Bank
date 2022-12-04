@@ -1,4 +1,5 @@
 package p1;
+// shouldve been the data structure used.
 
 public class ObjectLinkedList implements ListInterface {
    public ObjectNode head;

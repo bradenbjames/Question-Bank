@@ -3,7 +3,6 @@ package p1;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -164,15 +163,9 @@ public class Controller extends AbstractGroup {
         }
         if (actionEvent.getSource() == btnAddQuestion) {
 
-            if (groupArraySize == 0) {
-                lblErrorMessage.setText("Must Create a group first!");
+            if (groupArraySize == 0 || comboBox.getValue() == null) {
+                lblErrorMessage.setText("Must Create or Select a Group first!");
                 lblErrorMessage.setVisible(true);
-            }
-
-            if (comboBox.getValue() == null) {
-                lblErrorMessage.setText("Select a group first!");
-                lblErrorMessage.setVisible(true);
-
             } else {
                 lblErrorMessage.setVisible(false);
                 String s = comboBox.getValue();

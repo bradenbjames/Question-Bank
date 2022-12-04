@@ -30,7 +30,7 @@
                <VBox.margin>
                   <Insets top="100.0" />
                </VBox.margin></ImageView>
-            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../css/buttonStylesheet.css" textAlignment="CENTER">
+            <Button fx:id="btnOverview" alignment="BASELINE_CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../css/buttonStylesheet.css" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -41,10 +41,13 @@
                   <Insets left="50.0" />
                </padding>
                <graphic>
-                  <Label alignment="CENTER" text="Overview" />
+                  <Label alignment="CENTER" style="-fx-font-weight: bold" text="Overview" translateX="-30.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
                </graphic>
             </Button>
-            <Button fx:id="btnGroups" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" textAlignment="CENTER">
+            <Button fx:id="btnGroups" alignment="BASELINE_CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../css/buttonStylesheet.css" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -52,16 +55,25 @@
                   <Insets left="50.0" />
                </padding>
                <graphic>
-                  <Label alignment="CENTER" text="Groups" />
+                  <Label alignment="CENTER" style="-fx-font-weight: bold" text="Groups" translateX="-30.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
                </graphic>
             </Button>
-            <Button fx:id="btnExit" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" textAlignment="CENTER">
+            <Button fx:id="btnExit" alignment="BASELINE_CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" style="-fx-border-radius: 10px;" textAlignment="CENTER">
                <padding>
                   <Insets left="50.0" />
                </padding>
                <graphic>
-                  <Label alignment="CENTER" text="Exit" />
+                  <Label alignment="CENTER" style="-fx-font-weight: bold" text="Exit" translateX="-30.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
                </graphic>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Button>
             <Pane prefHeight="319.0" prefWidth="256.0" style="-fx-background-color: EAE4E4;">
                <children>
