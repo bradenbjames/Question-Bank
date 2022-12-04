@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Group {
     // public ObjectLinkedList list;
-    public ArrayList<String> arrayList;
+    public ArrayList<Question> arrayList;
     String groupName;
     int listCounter = 0;
 
     public Group(String groupName) {
         this.groupName = groupName;
         // list = new ObjectLinkedList();
-        arrayList = new ArrayList<String>();
+        arrayList = new ArrayList<Question>();
     }
 
 }

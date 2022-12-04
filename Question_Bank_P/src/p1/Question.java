@@ -1,7 +1,7 @@
 package p1;
 
 public class Question {
-    private String data;
+    public String data;
     int group;
 
     public Question(String data, int group) {

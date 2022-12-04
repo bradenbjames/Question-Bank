@@ -1,7 +1,5 @@
 package p1;
 
-// Should've been the data structure of the questions.
-
 public class ObjectLinkedList implements ListInterface {
    public ObjectNode head;
    private int numberOfItems;
